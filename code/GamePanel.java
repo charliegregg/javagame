@@ -25,9 +25,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    GameManager manager;
 
-    int x = 100;
-    int y = 100;
 
     public GamePanel()  {
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -87,5 +86,6 @@ public class GamePanel extends JPanel implements Runnable {
         g2.setColor(Color.WHITE);
         g2.fillRect(x, y, SCREEN_TILE_SIZE, SCREEN_TILE_SIZE);
         g2.dispose();
+        
     }
 }

@@ -2,3 +2,6 @@ you have to get resources and then like the exo trade platform trade them for fu
 
 automation!
 
+Cannot instantiate the type ArrayList<? extends Collider>Java(16777373)
+
+ColliderList.java error

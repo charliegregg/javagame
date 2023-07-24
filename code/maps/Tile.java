@@ -1,11 +1,36 @@
 package code.maps;
 
-public class Tile {
-    
-    public Tile() {
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+
+import code.maps.colliders.Collider;
+
+public abstract class Tile {
+    final String[] TEXTURE_PATHS = new String[] {};
+    private BufferedImage[] textures;
+    private int frame_number = 0;
+
+    private static Collider collider;
+
+    private void loadImages() {
+        if (this.textures == null) {
+            this.textures = new BufferedImage[this.TEXTURE_PATHS.length];
+            for (int i = 0; i < this.TEXTURE_PATHS.length; i++) {
+                try {
+                    this.textures[i] = ImageIO.read(getClass().getResourceAsStream(this.TEXTURE_PATHS[i]));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
-    public void onBreak() {
-        
+    public BufferedImage getTexture() {
+        this.loadImages();
+        return this.textures[frame_number];
+    }
+    public Collider getCollider() {
+        return collider;
     }
 }

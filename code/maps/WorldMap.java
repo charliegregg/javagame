@@ -1,20 +1,21 @@
 package code.maps;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class WorldMap {
-    Map<int, Level> levels;
+    Map<Integer, Level> levels;
     int nextId;
 
     public WorldMap() {
-        this.levels = new HashMap<int, Level>();
+        this.levels = new HashMap<Integer, Level>();
         this.nextId = 0;
     }
     public int addLevel(Level level) {
         this.levels.put(this.nextId, level);
         return this.nextId++;
     }
-    public getLevel(int id) {
+    public Level getLevel(int id) {
         return this.levels.get(id);
     }
 }
