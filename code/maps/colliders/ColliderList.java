@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import code.Vector2;
 
 public class ColliderList {
-    ArrayList<? extends Collider> colliders;
+    ArrayList<Collider> colliders;
 
-    public ColliderList(ArrayList<? extends Collider> colliders) {
+    public ColliderList(ArrayList<Collider> colliders) {
         this.colliders = colliders;
     }
     public boolean collide(ColliderList o, Vector2 thisOffset) {
@@ -21,6 +21,8 @@ public class ColliderList {
         return false;
     }
     public <T extends Collider> boolean collide(T o, Vector2 thisOffset) {
-        return this.collide(new ColliderList(new ArrayList<? extends Collider>(o)), thisOffset);
+        ArrayList<Collider> list = new ArrayList<Collider>();
+        list.add(o);
+        return this.collide(new ColliderList(list), thisOffset);
     }
 }

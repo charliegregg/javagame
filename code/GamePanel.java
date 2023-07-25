@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
 
 import javax.swing.JPanel;
 
@@ -36,6 +35,8 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
 
+        manager = new GameManager();
+
     }
     public void startGameThread() {
         gameThread = new Thread(this);
@@ -47,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable {
         long drawInterval = NANO_PER_SEC/FPS;
         long lastTime = System.nanoTime();
         while (gameThread != null) {
-            this.update();
+            manager.update();
             this.repaint();
             long currentTime = System.nanoTime();
             long remainingTime = drawInterval - (currentTime - lastTime);
@@ -64,28 +65,11 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
     }
-    public void update() {
-        if (keyH.is(KeyEvent.VK_W)) {
-            y -= 4;
-        }
-        if (keyH.is(KeyEvent.VK_S)) {
-            y += 4;
-        }
-        if (keyH.is(KeyEvent.VK_A)) {
-            x -= 4;
-        }
-        if (keyH.is(KeyEvent.VK_D)) {
-            x += 4;
-        }
-    }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
-
-        g2.setColor(Color.WHITE);
-        g2.fillRect(x, y, SCREEN_TILE_SIZE, SCREEN_TILE_SIZE);
+        manager.render(g2);
         g2.dispose();
-        
     }
 }

@@ -5,14 +5,14 @@ import java.awt.Graphics2D;
 import code.maps.WorldMap;
 
 public class GameManager {
-    WorldMap map = new WorldMap();
-    public static void init() {
-        
+    WorldMap map;
+    public GameManager() {
+        this.map = new WorldMap();
     }
-    public static void update() {
+    public void update() {
 
     }
-    public static void render(Graphics2D g) {
+    public void render(Graphics2D g) {
 
     }
 }

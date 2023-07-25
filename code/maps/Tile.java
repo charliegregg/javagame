@@ -5,14 +5,14 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import code.maps.colliders.Collider;
+import code.maps.colliders.ColliderList;
 
 public abstract class Tile {
     final String[] TEXTURE_PATHS = new String[] {};
     private BufferedImage[] textures;
     private int frame_number = 0;
 
-    private static Collider collider;
+    private static ColliderList collider;
 
     private void loadImages() {
         if (this.textures == null) {
@@ -30,7 +30,7 @@ public abstract class Tile {
         this.loadImages();
         return this.textures[frame_number];
     }
-    public Collider getCollider() {
+    public ColliderList getCollider() {
         return collider;
     }
 }
