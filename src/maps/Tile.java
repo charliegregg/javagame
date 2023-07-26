@@ -1,11 +1,11 @@
-package code.maps;
+package maps;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import code.maps.colliders.ColliderList;
+import maps.colliders.ColliderList;
 
 public abstract class Tile {
     final String[] TEXTURE_PATHS = new String[] {};

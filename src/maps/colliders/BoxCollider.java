@@ -1,6 +1,6 @@
-package code.maps.colliders;
+package maps.colliders;
 
-import code.Vector2;
+import maps.Vector2;
 
 public class BoxCollider extends Collider {
     public Vector2 size;

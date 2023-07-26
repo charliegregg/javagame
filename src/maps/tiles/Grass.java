@@ -1,6 +1,6 @@
-package code.maps.tiles;
+package maps.tiles;
 
-import code.maps.Tile;
+import maps.Tile;
 
 public class Grass extends Tile {
     

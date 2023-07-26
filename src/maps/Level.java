@@ -1,4 +1,5 @@
-package code.maps;
+package maps;
+
 
 import java.util.ArrayList;
 

@@ -1,8 +1,8 @@
-package code.maps.colliders;
+package maps.colliders;
 
 import java.util.ArrayList;
 
-import code.Vector2;
+import maps.Vector2;
 
 public class ColliderList {
     ArrayList<Collider> colliders;

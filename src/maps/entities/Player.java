@@ -1,4 +1,4 @@
-package code.maps.entities;
+
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -8,11 +8,11 @@ import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
-import code.GamePanel;
-import code.Vector2;
-import code.maps.Entity;
-import code.maps.colliders.CircleCollider;
-import code.maps.colliders.ColliderList;
+import main.GamePanel;
+import maps.Entity;
+import maps.Vector2;
+import maps.colliders.CircleCollider;
+import maps.colliders.ColliderList;
 
 public class Player extends Entity {
     BufferedImage texture;
@@ -32,7 +32,7 @@ public class Player extends Entity {
 
     }
     public void draw(Graphics2D g, Vector2 offset) {
-        Vector2 at = this.pos.sub(offset).sub(new Vector2(1, 1)).mul(new Vector2(GamePanel.SCREEN_TILE_SIZE, GamePanel.SCREEN_TILE_SIZE))
+        Vector2 at = this.pos.sub(offset).sub(new Vector2(1, 1)).mul(new Vector2(GamePanel.SCREEN_TILE_SIZE, GamePanel.SCREEN_TILE_SIZE));
         g.drawImage(this.texture, at.floorx(), at.floory(), GamePanel.SCREEN_TILE_SIZE, GamePanel.SCREEN_TILE_SIZE, null);
     }
 }

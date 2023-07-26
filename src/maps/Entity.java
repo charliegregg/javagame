@@ -1,9 +1,8 @@
-package code.maps;
+package maps;
 
 import java.awt.Graphics2D;
 
-import code.Vector2;
-import code.maps.colliders.ColliderList;
+import maps.colliders.ColliderList;
 
 public abstract class Entity {
     public Vector2 pos;

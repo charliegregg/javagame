@@ -1,6 +1,6 @@
-package code.maps;
+package maps;
 
-import code.maps.tiles.Edge;
+import maps.tiles.Edge;
 
 public class TileGrid {
     private Tile[][] tiles;
