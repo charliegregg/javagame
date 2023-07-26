@@ -9,20 +9,20 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable {
     
-    final int TILE_SIZE = 8;
-    final int SCALE = 6;
-    final int SCREEN_TILE_SIZE = TILE_SIZE * SCALE;
+    final static public int TILE_SIZE = 8;
+    final static public int SCALE = 6;
+    final static public int SCREEN_TILE_SIZE = TILE_SIZE * SCALE;
 
-    final int WIDTH_IN_TILES = 16;
-    final int HEIGHT_IN_TILES = 12;
-    final int SCREEN_WIDTH = WIDTH_IN_TILES * SCREEN_TILE_SIZE;
-    final int SCREEN_HEIGHT = HEIGHT_IN_TILES * SCREEN_TILE_SIZE;
+    final static public int WIDTH_IN_TILES = 16;
+    final static public int HEIGHT_IN_TILES = 12;
+    final static public int SCREEN_WIDTH = WIDTH_IN_TILES * SCREEN_TILE_SIZE;
+    final static public int SCREEN_HEIGHT = HEIGHT_IN_TILES * SCREEN_TILE_SIZE;
 
-    final int FPS = 60;
-    final long NANO_PER_SEC = 1000000000;
-    final int NANO_PER_MILLI = 1000000;
+    final static public int FPS = 60;
+    final static public long NANO_PER_SEC = 1000000000;
+    final static public int NANO_PER_MILLI = 1000000;
 
-    KeyHandler keyH = new KeyHandler();
+    final static public KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     GameManager manager;
 
