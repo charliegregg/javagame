@@ -9,6 +9,7 @@ import java.util.Arrays;
 import javax.imageio.ImageIO;
 
 import main.GamePanel;
+import main.KeyHandler;
 import maps.Entity;
 import maps.Vector2;
 import maps.colliders.CircleCollider;
@@ -17,6 +18,7 @@ import maps.colliders.ColliderList;
 
 public class Player extends Entity {
     KeyHandler keyH;
+    double speed = 2;
 
     public Player(Vector2 pos, KeyHandler keyH) {
         super(pos);
@@ -26,8 +28,24 @@ public class Player extends Entity {
         }));
         this.setTexture("/res/player.png");
     }
-    public void update() {
-
+    public void update(double deltaTime) {
+        Vector2 move = new Vector2(0, 0);
+        if (this.keyH.isPressed("w")) {
+            move = move.add(new Vector2(0, -1));
+        }
+        if (this.keyH.isPressed("a")) {
+            move = move.add(new Vector2(-1, 0));
+        }
+        if (this.keyH.isPressed("s")) {
+            move = move.add(new Vector2(0, 1));
+        }
+        if (this.keyH.isPressed("d")) {
+            move = move.add(new Vector2(1, 0));
+        }
+        if (move.sizeSquared() > 0) {
+            move.inormalize();
+            this.pos = this.pos.add(move.mul(deltaTime * this.speed));
+        }
     }
     public void draw(Graphics2D g, Vector2 offset) {
         Vector2 at = this.pos.sub(offset).sub(new Vector2(1, 1)).mul(new Vector2(GamePanel.SCREEN_TILE_SIZE, GamePanel.SCREEN_TILE_SIZE));
