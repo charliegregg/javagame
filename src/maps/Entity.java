@@ -7,6 +7,7 @@ import maps.colliders.ColliderList;
 public abstract class Entity {
     public Vector2 pos;
     private ColliderList collider;
+    private BufferedImage texture;
 
     public Entity(Vector2 pos) {
         this.pos = pos;
@@ -21,6 +22,16 @@ public abstract class Entity {
     }
     public void setCollider(ColliderList collider) {
         this.collider = collider;
+    }
+    public BufferedImage getTexture() {
+        return texture;
+    }
+    public void setTexture(String path) {
+        try {
+            this.texture = ImageIO.read(getClass().getResourceAsStream(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean collide(TileGrid grid) {

@@ -1,21 +1,19 @@
 package maps;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
 
 public class WorldMap {
-    Map<Integer, Level> levels;
-    int nextId;
+    private Set<Level> levels;
 
     public WorldMap() {
-        this.levels = new HashMap<Integer, Level>();
-        this.nextId = 0;
+        this.levels = new HashSet<>();
     }
-    public int addLevel(Level level) {
-        this.levels.put(this.nextId, level);
-        return this.nextId++;
+    public Level addLevel(Level level) {
+        this.levels.add(level);
+        return level;
     }
-    public Level getLevel(int id) {
-        return this.levels.get(id);
+    public Set<Level> getLevels() {
+        return this.levels
     }
 }

@@ -10,7 +10,7 @@ public class CircleCollider extends Collider {
         this.radius = radius;
     }
     public boolean collide(BoxCollider o, Vector2 thisOffset) {
-        return o.collide(this, thisOffset);
+        return o.collide(this, thisOffset.neg());
     }
     public boolean collide(CircleCollider o, Vector2 thisOffset) {
         return (this.radius + o.radius)*(this.radius + o.radius) 

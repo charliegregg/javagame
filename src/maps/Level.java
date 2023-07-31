@@ -13,8 +13,9 @@ public class Level {
         this.blocks = new TileGrid(width, height);
         this.entities = new ArrayList<>();
     }
-    public void addEntity(Entity entity) {
+    public Entity addEntity(Entity entity) {
         this.entities.add(entity);
+        return entity;
     }
     public void removeEntity(Entity entity) {
         this.entities.remove(entity);

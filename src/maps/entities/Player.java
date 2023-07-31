@@ -12,21 +12,19 @@ import main.GamePanel;
 import maps.Entity;
 import maps.Vector2;
 import maps.colliders.CircleCollider;
+import maps.colliders.Collider;
 import maps.colliders.ColliderList;
 
 public class Player extends Entity {
-    BufferedImage texture;
+    KeyHandler keyH;
 
-    public Player(Vector2 pos) {
+    public Player(Vector2 pos, KeyHandler keyH) {
         super(pos);
-        this.setCollider(new ColliderList(new ArrayList<>(Arrays.asList(
-            new CircleCollider(pos, 0.4)
-        ))));
-        try {
-            this.texture = ImageIO.read(getClass().getResourceAsStream(""));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.keyH = keyH;
+        this.setCollider(new ColliderList(new Collider[] {
+            new CircleCollider(pos, 0.8)
+        }));
+        this.setTexture("/res/player.png");
     }
     public void update() {
 

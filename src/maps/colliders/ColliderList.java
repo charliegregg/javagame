@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import maps.Vector2;
 
 public class ColliderList {
-    ArrayList<Collider> colliders;
+    Collider[] colliders;
 
-    public ColliderList(ArrayList<Collider> colliders) {
+    public ColliderList(Collider[] colliders) {
         this.colliders = colliders;
     }
     public boolean collide(ColliderList o, Vector2 thisOffset) {
-        for (int i = 0; i < this.colliders.size(); i++) {
-            for (int j = 0; j < o.colliders.size(); j++) {
-                if (this.colliders.get(i).collide(o.colliders.get(j), thisOffset)) {
+        for (int i = 0; i < this.colliders.length; i++) {
+            for (int j = 0; j < o.colliders.length; j++) {
+                if (this.colliders[i].collide(o.colliders[j], thisOffset)) {
                     return true;
                 }
             }
@@ -21,8 +21,6 @@ public class ColliderList {
         return false;
     }
     public <T extends Collider> boolean collide(T o, Vector2 thisOffset) {
-        ArrayList<Collider> list = new ArrayList<Collider>();
-        list.add(o);
-        return this.collide(new ColliderList(list), thisOffset);
+        return this.collide(new ColliderList(new Collider[] {o}), thisOffset);
     }
 }
