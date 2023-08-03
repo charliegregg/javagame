@@ -30,17 +30,18 @@ public class Player extends Entity {
     }
     public void update(double deltaTime) {
         Vector2 move = new Vector2(0, 0);
-        if (this.keyH.isPressed("w")) {
-            move = move.add(new Vector2(0, -1));
+        if (this.keyH.is("W")) {
+            move.iadd(new Vector2(0, -1));
         }
-        if (this.keyH.isPressed("a")) {
-            move = move.add(new Vector2(-1, 0));
+        if (this.keyH.is("A")) {
+
+            move.iadd(new Vector2(-1, 0));
         }
-        if (this.keyH.isPressed("s")) {
-            move = move.add(new Vector2(0, 1));
+        if (this.keyH.is("S")) {
+            move.iadd(new Vector2(0, 1));
         }
-        if (this.keyH.isPressed("d")) {
-            move = move.add(new Vector2(1, 0));
+        if (this.keyH.is("D")) {
+            move.iadd(new Vector2(1, 0));
         }
         if (move.sizeSquared() > 0) {
             move.inormalize();

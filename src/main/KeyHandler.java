@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class KeyHandler implements KeyListener {
 
-    private Set<Integer> keys = new HashSet<>();
+    private Set<String> keys = new HashSet<>();
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -16,15 +16,17 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        keys.add(e.getKeyCode());
+        String keyText = KeyEvent.getKeyText(e.getKeyCode());
+        keys.add(keyText);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        keys.remove(e.getKeyCode());
+        String keyText = KeyEvent.getKeyText(e.getKeyCode());
+        keys.remove(keyText);
     }
 
-    public boolean is(int code) {
-        return keys.contains(code);
+    public boolean is(String keyText) {
+        return keys.contains(keyText);
     }
 }
