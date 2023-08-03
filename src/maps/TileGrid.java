@@ -1,6 +1,6 @@
 package maps;
 
-import maps.tiles.Edge;
+import maps.tiles.Air;
 
 public class TileGrid {
     private Tile[][] tiles;
@@ -10,6 +10,11 @@ public class TileGrid {
         this.tiles = new Tile[width][height];
         this.width = width;
         this.height = height;
+        for(int x = 0; x < this.width; x++) {
+            for(int y = 0; y < this.height; y++) {
+                this.tiles[x][y] = new Air();
+            }
+        }
     }
     public void setTile(int x, int y, Tile tile) {
         if (x < 0 || x >= this.width || y < 0 || y >= this.height) {
