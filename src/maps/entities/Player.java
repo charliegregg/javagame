@@ -34,7 +34,6 @@ public class Player extends Entity {
             move.iadd(new Vector2(0, -1));
         }
         if (this.keyH.is("A")) {
-
             move.iadd(new Vector2(-1, 0));
         }
         if (this.keyH.is("S")) {
