@@ -13,10 +13,10 @@ public class GameManager {
     Player player;
     long lastUpdate;
 
-    public GameManager() {
+    public GameManager(KeyHandler keyH) {
         this.map = new WorldMap();
         this.mainLevel = this.map.addLevel(new Level(10, 10));
-        this.player = this.mainLevel.addEntity(new Player(new Vector2(5, 5)));
+        this.player = this.mainLevel.addEntity(new Player(new Vector2(5, 5), keyH));
     }
     public void update() {
         long currentTime = System.nanoTime();
