@@ -1,6 +1,7 @@
 package maps;
 
 
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class Level {
@@ -38,5 +39,25 @@ public class Level {
             return this.floor.getTile(x, y);
         }
         return this.floor.getTile(x, y);
+    }
+    public void update(double deltaTime) {
+        for (Entity entity : this.entities) {
+            entity.update(deltaTime);
+        }
+    }
+    public void draw(Graphics2D g) {
+        for (int x = 0; x < this.floor.width; x++) {
+            for (int y = 0; y < this.floor.height; y++) {
+                this.floor.getTile(x, y).draw(g, new Vector2(x, y));
+            }
+        }
+        for (int x = 0; x < this.blocks.width; x++) {
+            for (int y = 0; y < this.blocks.height; y++) {
+                this.blocks.getTile(x, y).draw(g, new Vector2(x, y));
+            }
+        }
+        for (Entity entity : this.entities) {
+            entity.draw(g, new Vector2());
+        }
     }
 }

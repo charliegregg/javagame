@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 
 import maps.Level;
 import maps.WorldMap;
-import maps.entities.Player;
+import maps.ents.Player;
 import maps.Vector2;
 
 public class GameManager {
@@ -16,7 +16,7 @@ public class GameManager {
     public GameManager(KeyHandler keyH) {
         this.map = new WorldMap();
         this.mainLevel = this.map.addLevel(new Level(10, 10));
-        this.player = this.mainLevel.addEntity(new Player(new Vector2(5, 5), keyH));
+        this.player = (Player) this.mainLevel.addEntity(new Player(new Vector2(5, 5), keyH));
     }
     public void update() {
         long currentTime = System.nanoTime();
@@ -26,7 +26,7 @@ public class GameManager {
         this.player.update(deltaTime);
     }
     public void render(Graphics2D g) {
-        this.player.level.draw(g)
-        this.player.draw(g);
+        this.player.level.draw(g);
+        this.player.draw(g, new Vector2());
     }
 }

@@ -1,6 +1,7 @@
 package maps;
 
 import maps.tiles.Air;
+import maps.tiles.Edge;
 
 public class TileGrid {
     private Tile[][] tiles;

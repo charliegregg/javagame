@@ -1,7 +1,5 @@
 package maps.colliders;
 
-import java.util.ArrayList;
-
 import maps.Vector2;
 
 public class ColliderList {

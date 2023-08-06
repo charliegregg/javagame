@@ -1,5 +1,6 @@
 package maps;
 
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -13,6 +14,10 @@ public abstract class Tile {
     private int frame_number = 0;
 
     private static ColliderList collider;
+
+    abstract public void update(double deltaTime);
+
+    abstract public void draw(Graphics2D g, Vector2 offset);
 
     private void loadImages() {
         if (this.textures == null) {

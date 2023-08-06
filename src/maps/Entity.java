@@ -1,6 +1,10 @@
 package maps;
 
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import maps.colliders.ColliderList;
 
@@ -8,12 +12,13 @@ public abstract class Entity {
     public Vector2 pos;
     private ColliderList collider;
     private BufferedImage texture;
+    public Level level;
 
     public Entity(Vector2 pos) {
         this.pos = pos;
     }
 
-    abstract public void update();
+    abstract public void update(double deltaTime);
 
     abstract public void draw(Graphics2D g, Vector2 offset);
 

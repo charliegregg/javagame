@@ -14,6 +14,6 @@ public class WorldMap {
         return level;
     }
     public Set<Level> getLevels() {
-        return this.levels
+        return this.levels;
     }
 }
