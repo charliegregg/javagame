@@ -17,7 +17,9 @@ public abstract class Tile {
 
     abstract public void update(double deltaTime);
 
-    abstract public void draw(Graphics2D g, Vector2 offset);
+    public void draw(Graphics2D g, Vector2 offset) {
+        g.drawImage(this.getTexture(), (int) (offset.x * GamePanel.SCREEN_TILE_SIZE), (int) (offset.y * GamePanel.SCREEN_TILE_SIZE), GamePanel.SCREEN_TILE_SIZE, GamePanel.SCREEN_TILE_SIZE, null);
+    }
 
     private void loadImages() {
         if (this.textures == null) {

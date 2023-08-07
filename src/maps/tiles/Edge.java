@@ -12,11 +12,5 @@ public class Edge extends Tile {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
-
-    @Override
-    public void draw(Graphics2D g, Vector2 offset) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'draw'");
-    }
     
 }

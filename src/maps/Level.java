@@ -45,19 +45,19 @@ public class Level {
             entity.update(deltaTime);
         }
     }
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D g, Vector2 cameraPos) {
         for (int x = 0; x < this.floor.width; x++) {
             for (int y = 0; y < this.floor.height; y++) {
-                this.floor.getTile(x, y).draw(g, new Vector2(x, y));
+                this.floor.getTile(x, y).draw(g, new Vector2(x, y).sub(cameraPos));
             }
         }
         for (int x = 0; x < this.blocks.width; x++) {
             for (int y = 0; y < this.blocks.height; y++) {
-                this.blocks.getTile(x, y).draw(g, new Vector2(x, y));
+                this.blocks.getTile(x, y).draw(g, new Vector2(x, y).sub(cameraPos));
             }
         }
         for (Entity entity : this.entities) {
-            entity.draw(g, new Vector2());
+            entity.draw(g, entity.pos.sub(cameraPos));
         }
     }
 }

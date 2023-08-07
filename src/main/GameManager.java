@@ -26,7 +26,6 @@ public class GameManager {
         this.player.update(deltaTime);
     }
     public void render(Graphics2D g) {
-        this.player.level.draw(g);
-        this.player.draw(g, new Vector2());
+        this.player.level.draw(g, this.player.pos);
     }
 }
