@@ -16,10 +16,12 @@ public class Level {
     }
     public Entity addEntity(Entity entity) {
         this.entities.add(entity);
+        entity.setLevel(this);
         return entity;
     }
     public void removeEntity(Entity entity) {
         this.entities.remove(entity);
+        entity.setLevel(null);
     }
     public ArrayList<Entity> getEntities() {
         return this.entities;

@@ -38,6 +38,9 @@ public abstract class Entity {
             e.printStackTrace();
         }
     }
+    public void setLevel(Level level) {
+        this.level = level;
+    }
 
     public boolean collide(TileGrid grid) {
         return grid.getTile(this.pos.floorx(), this.pos.floory()).getCollider().collide(collider,

@@ -20,7 +20,7 @@ public class Player extends Entity {
         this.setCollider(new ColliderList(new Collider[] {
             new CircleCollider(pos, 0.8)
         }));
-        this.setTexture("../../../res/player.png");
+        // this.setTexture("../../../res/player.png");
     }
     public void update(double deltaTime) {
         Vector2 move = new Vector2(0, 0);

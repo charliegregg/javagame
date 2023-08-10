@@ -6,10 +6,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import main.GamePanel;
 import maps.colliders.ColliderList;
 
 public abstract class Tile {
-    final String[] TEXTURE_PATHS = new String[] {};
+    String[] TEXTURE_PATHS = new String[] {"res/tiles/grass.png"};
     private BufferedImage[] textures;
     private int frame_number = 0;
 
